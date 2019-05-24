@@ -3,7 +3,7 @@
   "version": "0.0.3",
   "main": "lib/gocardless-pro-node.js",
   "types": "lib/gocardless-pro-node.d.ts",
-  "repository": "https://github.com/tolujimoh/gocardless-pro-node.git",
+  "repository": "https://github.com/johnfredadams/gocardless-pro-node.git",
   "author": "Tolu Jimoh <st.jimoh@outlook.com>",
   "license": "MIT",
   "scripts": {
