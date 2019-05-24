@@ -60,7 +60,7 @@ abstract class GocardlessResource {
       });
 
       if (requestBody) {
-        if(requestBody.match(/redirect_flows/) && options && options.path.match(/complete/)){
+        if(requestBody.match(/redirect_flows/) && options && options.path && options.path.match(/complete/)){
           var rb = JSON.parse(requestBody)
           requestBody = JSON.stringify({ data: rb.redirect_flows})
         }
