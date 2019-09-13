@@ -78,7 +78,7 @@ interface CreateRedirectFlowsRequest {
    */
   scheme?: string;
 
-  link?: {
+  links?: {
     /** The creditor for whom the mandate will be created. The name of the creditor will be displayed on the payment page. Required if your account manages multiple creditors.
      */
     creditor: string;
@@ -164,7 +164,7 @@ interface RedirectFlows {
    * @memberof RedirectFlowsResource
    */
   create: (
-    params: CreateRedirectFlowsRequest | Params<CreateRedirectFlowsRequest>,
+    params: CreateRedirectFlowsRequest | Params<CreateRedirectFlowsRequest>
   ) => CreateRedirectFlowsSuccessResponse;
 
   /**
@@ -186,7 +186,7 @@ interface RedirectFlows {
    */
   complete: (
     resourceId: string,
-    params: CompleteRedirectFlowsRequest | Params<CompleteRedirectFlowsRequest>,
+    params: CompleteRedirectFlowsRequest | Params<CompleteRedirectFlowsRequest>
   ) => CompleteRedirectFlowsSuccessResponse;
 }
 
@@ -196,5 +196,5 @@ export {
   CreateRedirectFlowsSuccessResponse,
   GetRedirectFlowsSuccessResponse,
   CompleteRedirectFlowsSuccessResponse,
-  RedirectFlows,
+  RedirectFlows
 };

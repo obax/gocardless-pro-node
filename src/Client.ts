@@ -46,8 +46,8 @@ import { Subscriptions } from "./types/resources/Subscriptions";
 import {
   GOCARDLESS_API_DEFAULT_TIMEOUT,
   GOCARDLESS_API_VERSION,
-  LIVE_ENIVIRONMENT_URL,
-  SANDBOX_ENIVIRONMENT_URL,
+  LIVE_ENVIRONMENT_URL,
+  SANDBOX_ENVIRONMENT_URL,
 } from "./Constants";
 
 class Client extends EventEmitter implements ClientInteface {
@@ -94,11 +94,11 @@ class Client extends EventEmitter implements ClientInteface {
 
   public static getHostByEnvironment(environment: Environment): string {
     if (environment === "live") {
-      return LIVE_ENIVIRONMENT_URL;
+      return LIVE_ENVIRONMENT_URL;
     }
 
     // environment === "sandbox"
-    return SANDBOX_ENIVIRONMENT_URL;
+    return SANDBOX_ENVIRONMENT_URL;
   }
   public creditor_bank_accounts: CreditorBankAccounts;
   public creditors: Creditors;

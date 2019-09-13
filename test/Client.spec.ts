@@ -16,8 +16,8 @@ import RedirectFlowsResource from "../src/resources/RedirectFlowsResource";
 import RefundsResource from "../src/resources/RefundsResource";
 import SubscriptionsResource from "../src/resources/SubscriptionsResource";
 import {
-  LIVE_ENIVIRONMENT_URL,
-  SANDBOX_ENIVIRONMENT_URL,
+  LIVE_ENVIRONMENT_URL,
+  SANDBOX_ENVIRONMENT_URL
 } from "./../src/Constants";
 
 describe("Client", () => {
@@ -27,27 +27,27 @@ describe("Client", () => {
       it("if no config is passed", () => {
         options = undefined;
         expect(() => new gocardless.Client(options)).to.throw(
-          "Config is required",
+          "Config is required"
         );
       });
       it("if config is not an object", () => {
         options = "no object";
         expect(() => new gocardless.Client(options)).to.throw(
-          "Expected Object for Config",
+          "Expected Object for Config"
         );
       });
       it("if config Object has no access_token property", () => {
         options = {};
         expect(() => new gocardless.Client(options)).to.throw(
-          "access_token is required",
+          "access_token is required"
         );
       });
-      it("if config Object has no enivronment and base_url properties", () => {
+      it("if config Object has no environment and base_url properties", () => {
         options = {
-          access_token: "",
+          access_token: ""
         };
         expect(() => new gocardless.Client(options)).to.throw(
-          "environment or base_url is required",
+          "environment or base_url is required"
         );
       });
     });
@@ -58,11 +58,11 @@ describe("Client", () => {
       it("check auth is set", () => {
         client = new gocardless.Client({
           access_token: process.env.SANDBOX_ACCESS_TOKEN || "",
-          environment: "sandbox",
+          environment: "sandbox"
         });
 
         expect(client.auth).to.be.equal(
-          `Bearer ${process.env.SANDBOX_ACCESS_TOKEN || ""}`,
+          `Bearer ${process.env.SANDBOX_ACCESS_TOKEN || ""}`
         );
       });
 
@@ -70,12 +70,12 @@ describe("Client", () => {
         before(() => {
           client = new gocardless.Client({
             access_token: process.env.SANDBOX_ACCESS_TOKEN || "",
-            environment: "live",
+            environment: "live"
           });
         });
 
         it("check host is live url", () => {
-          expect(client.host).to.be.equal(LIVE_ENIVIRONMENT_URL);
+          expect(client.host).to.be.equal(LIVE_ENVIRONMENT_URL);
         });
 
         it("check environment set to live", () => {
@@ -87,12 +87,12 @@ describe("Client", () => {
         before(() => {
           client = new gocardless.Client({
             access_token: process.env.SANDBOX_ACCESS_TOKEN || "",
-            environment: "sandbox",
+            environment: "sandbox"
           });
         });
 
         it("check host is sandbox url", () => {
-          expect(client.host).to.be.equal(SANDBOX_ENIVIRONMENT_URL);
+          expect(client.host).to.be.equal(SANDBOX_ENVIRONMENT_URL);
         });
         it("check environment set to sandbox", () => {
           expect(client.environment).to.be.equal("sandbox");
@@ -104,7 +104,7 @@ describe("Client", () => {
         before(() => {
           client = new gocardless.Client({
             access_token: process.env.SANDBOX_ACCESS_TOKEN || "",
-            base_url,
+            base_url
           });
         });
 
@@ -122,12 +122,12 @@ describe("Client", () => {
   describe("getHostByEnvironment", () => {
     it("return Live url if environment is set to live", () => {
       expect(gocardless.Client.getHostByEnvironment("live")).to.be.equal(
-        LIVE_ENIVIRONMENT_URL,
+        LIVE_ENVIRONMENT_URL
       );
     });
     it("return Sandbox url if environment is set to sandbox", () => {
       expect(gocardless.Client.getHostByEnvironment("sandbox")).to.be.equal(
-        SANDBOX_ENIVIRONMENT_URL,
+        SANDBOX_ENVIRONMENT_URL
       );
     });
   });
@@ -137,7 +137,7 @@ describe("Client", () => {
     before(() => {
       client = new gocardless.Client({
         access_token: process.env.SANDBOX_ACCESS_TOKEN || "",
-        environment: "sandbox",
+        environment: "sandbox"
       });
     });
 
@@ -145,7 +145,7 @@ describe("Client", () => {
       it("check setter / getter", () => {
         client.environment = "live";
         expect(client.environment).to.be.equal("live");
-        expect(client.host).to.be.equal(LIVE_ENIVIRONMENT_URL);
+        expect(client.host).to.be.equal(LIVE_ENVIRONMENT_URL);
       });
     });
 
@@ -169,7 +169,7 @@ describe("Client", () => {
       it("check setter / getter", () => {
         client.auth = process.env.SANDBOX_ACCESS_TOKEN || "";
         expect(client.auth).to.be.equal(
-          `Bearer ${process.env.SANDBOX_ACCESS_TOKEN || ""}`,
+          `Bearer ${process.env.SANDBOX_ACCESS_TOKEN || ""}`
         );
       });
     });
@@ -189,13 +189,13 @@ describe("Client", () => {
     before(() => {
       client = new gocardless.Client({
         environment: "sandbox",
-        access_token: process.env.SANDBOX_ACCESS_TOKEN || "",
+        access_token: process.env.SANDBOX_ACCESS_TOKEN || ""
       });
     });
     it("creditor_bank_accounts is loaded", () => {
       expect(client).to.have.property("creditor_bank_accounts");
       expect(client.creditor_bank_accounts).to.be.instanceof(
-        CreditorBankAccountsResource,
+        CreditorBankAccountsResource
       );
     });
     it("creditors is loaded", () => {
@@ -205,13 +205,13 @@ describe("Client", () => {
     it("customer_bank_accounts is loaded", () => {
       expect(client).to.have.property("customer_bank_accounts");
       expect(client.customer_bank_accounts).to.be.instanceof(
-        CustomerBankAccountsResource,
+        CustomerBankAccountsResource
       );
     });
     it("customer_notifications is loaded", () => {
       expect(client).to.have.property("customer_notifications");
       expect(client.customer_notifications).to.be.instanceof(
-        CustomerNotificationsResource,
+        CustomerNotificationsResource
       );
     });
     it("customers is loaded", () => {
@@ -225,7 +225,7 @@ describe("Client", () => {
     it("mandate_import_entries is loaded", () => {
       expect(client).to.have.property("mandate_import_entries");
       expect(client.mandate_import_entries).to.be.instanceof(
-        MandateImportEntriesResource,
+        MandateImportEntriesResource
       );
     });
     it("mandate_imports is loaded", () => {
