@@ -1,4 +1,4 @@
-# gocardless-pro-node
+# gocardless-pro-node-extra
 
 A Node.js Client for interracting with the Gocardless Pro API
 
@@ -14,13 +14,13 @@ See Gocardless Pro [API Reference](https://developer.gocardless.com/api-referenc
 Install the package with
 
 ```sh
-npm install gocardless-pro-node --save
+npm install gocardless-pro-node-extra --save
 ```
 
 or
 
 ```sh
-yarn add gocardless-pro-node
+yarn add gocardless-pro-node-extra
 ```
 
 ## Usage

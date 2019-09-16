@@ -1,5 +1,5 @@
 {
-  "name": "gocardless-pro-node",
+  "name": "gocardless-pro-node-extra",
   "version": "0.0.3",
   "main": "lib/gocardless-pro-node.js",
   "types": "lib/gocardless-pro-node.d.ts",
